@@ -1,0 +1,71 @@
+.store-system {
+    padding: 20px;
+    text-align: center;
+  
+    .search-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+  
+      select, input, button {
+        padding: 8px;
+        font-size: 14px;
+      }
+  
+      button {
+        background-color: #5c3a21;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    .store-count{
+      font-weight: bold;
+      
+    }
+    .store-list-map {
+      display: flex;
+      gap: 20px;
+      
+      .store-list {
+        flex: 1;
+        overflow-y: auto;
+        max-height: 500px;
+        
+        .store-item {
+          border-bottom: 1px solid #ddd;
+          padding: 10px;
+          .store-status {
+            font-weight: bold;
+            &.open {
+              color: green; // Màu xanh cho trạng thái OPEN
+            }
+            &.close {
+              color: red; // Màu đỏ cho trạng thái CLOSE
+            }
+          }
+          h2 {
+            font-size: 16px;
+            color: #5c3a21;
+          }
+          
+          .store-status {
+            color: green;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      .store-map {
+        flex: 1;
+        img {
+          width: 80%;
+          height : 500px;
+        }
+      }
+    }
+  }
+  
+  
+  
