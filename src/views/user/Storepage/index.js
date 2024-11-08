@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import './style.scss';
+import './store.scss';
 import Map from 'assets/Lets/Map.jpg';
 
 const stores = [

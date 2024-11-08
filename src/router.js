@@ -1,5 +1,6 @@
+// RouterCustom.js
 import { ROUTERS } from "./utils/router";
-import Homepage from "./views/user/homepage";
+import Homepage from "./views/user/Homepage";
 import Aboutpage from "./views/user/About";
 import MasterLayout from "./views/user/theme/masterLayout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,39 +9,21 @@ import Storypage from "views/user/Storypage";
 import Coffeepage from "views/user/Productpage/Coffeepage";
 import Coursepage from "views/user/Productpage/Coursepage";
 import Providepage from "views/user/Productpage/Providepage";
+import Loginpage from "views/user/Loginpage";
+import Forgetpass from "views/user/Forgetpassword";
 
 const RenderUserRouter = () => {
     const userRouters = [
-        {
-            path: ROUTERS.USER.HOME,
-            component: <Homepage />,
-        },
-        {
-            path: ROUTERS.USER.ABOUT,
-            component: <Aboutpage/>
-        },
-        {
-            path: ROUTERS.USER.STORE,
-            component: <Storepage/>
-        },
-        {
-            path: ROUTERS.USER.STORY,
-            component: <Storypage/>
-        },
-        {
-            path: ROUTERS.USER.COFFEE,
-            component: <Coffeepage/>
-        },
-        {
-            path: ROUTERS.USER.COURSE,
-            component: <Coursepage/>
-        },
-        {
-            path: ROUTERS.USER.PROVIDE,
-            component: <Providepage/>
-        },
-
-    ];
+        { path: ROUTERS.USER.HOME, component: <Homepage /> },
+        { path: ROUTERS.USER.ABOUT, component: <Aboutpage/> },
+        { path: ROUTERS.USER.STORE, component: <Storepage/> },
+        { path: ROUTERS.USER.STORY, component: <Storypage/> },
+        { path: ROUTERS.USER.COFFEE, component: <Coffeepage/> },
+        { path: ROUTERS.USER.COURSE, component: <Coursepage/> },
+        { path: ROUTERS.USER.PROVIDE, component: <Providepage/> },
+        { path: ROUTERS.USER.LOGIN, component: <Loginpage/> },
+        { path: ROUTERS.USER.FORGETPASS, component: <Forgetpass/> },
+    ];  
 
     return (
         <Router>

@@ -1,5 +1,5 @@
 import { memo } from "react"
-
+import "./provide.scss"
 
 const Providepage =() => {
     return (

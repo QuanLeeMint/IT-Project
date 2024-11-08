@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./style.scss" // Tạo file CSS này cho các styles
+import "./coffee.scss" // Tạo file CSS này cho các styles
 import colombia from 'assets/Lets/columbia.png';
 import kenya from 'assets/Lets/kenya.png';
 import ethi from 'assets/Lets/ethi.png';
@@ -12,7 +12,7 @@ const ProductPage = () => {
 
     const products = [
         {
-            name: "DRIP BAG",
+            name: "DRIP BAG",   
             subtitle: "Colombia",
             price: "25K",
             imgSrc: colombia,

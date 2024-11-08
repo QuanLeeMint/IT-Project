@@ -9,6 +9,8 @@ export const ROUTERS = {
         PROVIDE:"/provide",
         COURSE:"/course",
         COFFEE:"/coffee",
+        LOGIN:"/login",
+        FORGETPASS:"/forgetpass"
 
     },
 };

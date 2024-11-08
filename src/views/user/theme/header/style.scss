@@ -39,7 +39,9 @@
                 }
                 
             }
-
+            .link{
+                font-size: 16px;
+            }
             
 
             &:last-child {
@@ -52,6 +54,7 @@
                     display: flex; // Sử dụng flex để căn chỉnh nếu cần
                     align-items: center; // Căn giữa chữ
                     line-height: 24px; // Điều chỉnh line-height cho cân đối
+                   
                 }
             }
         }

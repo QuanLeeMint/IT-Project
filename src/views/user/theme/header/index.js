@@ -92,10 +92,12 @@ const Header = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="">
+                                        <Link to={ROUTERS.USER.LOGIN}>
                                             <BiSolidUserCircle />
                                         </Link>
-                                        <span>Đăng nhập</span>
+                                        <span>
+                                            <Link to={ROUTERS.USER.LOGIN} className="link">Đăng nhập</Link>
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
@@ -106,6 +108,8 @@ const Header = () => {
                     <div className="row">
                         <div className="header-logo">
                             <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
+                                
+                            
                         </div>
                         <nav className="header-menu">
                             <ul>

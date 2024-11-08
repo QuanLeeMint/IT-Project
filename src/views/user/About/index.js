@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import './About.scss';
+import './about.scss';
 import backgroundImage from 'assets/Lets/Let_leduan3.jpg';
 import image1 from 'assets/Lets/workshop.jpg';
 import image2 from 'assets/Lets/roast.jpg';
