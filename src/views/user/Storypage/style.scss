@@ -1,0 +1,67 @@
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "styles/page/theme";
+
+.from-farm-to-cup {
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  .section-title {
+    text-align: center;
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color:map.get($theme-colors,"normal-text");
+    }
+  }
+  
+  .journey-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Tăng khoảng cách giữa các tab */
+    margin: 1.5rem 0;
+    span {
+      cursor: pointer;
+      font-size: 1rem;
+      color: map.get($theme-colors,"normal-text");
+      &:hover {
+        text-decoration: underline;
+        color: map.get($theme-colors,"main");
+      }
+    }
+  }
+  
+  .content-grid {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    max-width: 90%; /* Giới hạn chiều rộng tối đa của grid */
+    margin: 0 auto; /* Canh giữa */
+    
+  
+    .content-card {
+      flex: 1; /* Lấp đầy không gian theo tỉ lệ */
+      min-width: 250px; /* Đảm bảo các khối không quá nhỏ */
+      max-width: 500px; /* Giới hạn chiều rộng tối đa */
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      h3 {
+        font-size: 1.0rem;
+        color: #a57d3a;
+        margin: 0.5rem 0;
+      }
+      p {
+        font-size: 0,8rem;
+        color: map.get($theme-colors,"normal-text");
+      }
+    }
+  }
+  
