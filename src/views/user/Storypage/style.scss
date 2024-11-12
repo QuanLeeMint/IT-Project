@@ -3,65 +3,124 @@
 @import "styles/page/theme";
 
 .from-farm-to-cup {
-    padding: 2rem;
-    background-color: #fff;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
   }
   
-  .section-title {
-    text-align: center;
-    h2 {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
+  p {
+    font-size: 1.2rem;
+    color: map.get($theme-colors, "normal-text");
+  }
+}
+
+.journey-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+
+  span {
+    cursor: pointer;
+    font-size: 1rem;
+    color: map.get($theme-colors, "normal-text");
+
+    &:hover {
+      text-decoration: underline;
+      color: map.get($theme-colors, "main");
     }
-    p {
+  }
+}
+
+.content-grid {
+  display: flex;
+  
+  gap: 2rem;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+
+  .content-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
       font-size: 1.2rem;
-      color:map.get($theme-colors,"normal-text");
+      color: #a57d3a;
+      margin: 0.5rem 0;
     }
-  }
-  
-  .journey-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem; /* Tăng khoảng cách giữa các tab */
-    margin: 1.5rem 0;
-    span {
+
+    p {
+      font-size: 0.9rem;
+      color: map.get($theme-colors, "normal-text");
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: map.get($theme-colors, "main");
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 1rem;
-      color: map.get($theme-colors,"normal-text");
+      font-size: 0.9rem;
+      
       &:hover {
-        text-decoration: underline;
-        color: map.get($theme-colors,"main");
+        background-color: darken(map.get($theme-colors, "main"), 10%);
       }
     }
   }
-  
-  .content-grid {
-    display: flex;
-    gap: 4rem;
-    justify-content: space-between;
-    max-width: 90%; /* Giới hạn chiều rộng tối đa của grid */
-    margin: 0 auto; /* Canh giữa */
-    
-  
-    .content-card {
-      flex: 1; /* Lấp đầy không gian theo tỉ lệ */
-      min-width: 250px; /* Đảm bảo các khối không quá nhỏ */
-      max-width: 500px; /* Giới hạn chiều rộng tối đa */
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-      }
-      h3 {
-        font-size: 1.0rem;
-        color: #a57d3a;
-        margin: 0.5rem 0;
-      }
-      p {
-        font-size: 0,8rem;
-        color: map.get($theme-colors,"normal-text");
-      }
-    }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card {
+  opacity: 0;
+  animation: fadeInRight 0.5s forwards;
+}
+
+.card-1 {
+  animation-delay: 0.2s;
+}
+
+.card-2 {
+  animation-delay: 0.4s;
+}
+
+.card-3 {
+  animation-delay: 0.6s;
+}
+
+.card-4 {
+  animation-delay: 0.8s;
+}
