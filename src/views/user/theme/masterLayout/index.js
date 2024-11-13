@@ -5,17 +5,17 @@ import Footer from "../footer";
 
 const MasterLayout = ({ children, ...props }) => {
     const location = useLocation();
-    const isLoginPage = location.pathname === '/login'; // Kiểm tra nếu là trang đăng nhập
+    const isAuthPage = location.pathname === '/login' || location.pathname === '/forgetpass'; // Kiểm tra nếu là trang đăng nhập hoặc quên mật khẩu
 
     return (
         <div {...props}>
-            {/* Chỉ hiển thị Header nếu không phải là trang đăng nhập */}
-            {!isLoginPage && <Header />}
+            {/* Chỉ hiển thị Header nếu không phải là trang đăng nhập hoặc quên mật khẩu */}
+            {!isAuthPage && <Header />}
             
             {children}
             
-            {/* Chỉ hiển thị Footer nếu không phải là trang đăng nhập */}
-            {!isLoginPage && <Footer />}
+            {/* Chỉ hiển thị Footer nếu không phải là trang đăng nhập hoặc quên mật khẩu */}
+            {!isAuthPage && <Footer />}
         </div>
     );
 };

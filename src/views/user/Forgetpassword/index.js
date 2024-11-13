@@ -14,6 +14,9 @@ const Forgetpass = () => {
             height: '100vh',
         }}>
             <div className="form-container">
+                <div className="logo">
+                    <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
+                </div>
                 <h2>Quên mật khẩu</h2>
                 <form>
                     <div className="input-group">

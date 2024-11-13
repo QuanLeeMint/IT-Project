@@ -40,7 +40,7 @@ const Loginpage = () => {
                         {/* Sign In Container */}
                         <div className="form-container sign-in-container">
                             <form className='form-2'>
-                                <div className="social-container">
+                                <div className="logo">
                                     <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
                                 </div>
                                 <h1>Đăng nhập</h1>
