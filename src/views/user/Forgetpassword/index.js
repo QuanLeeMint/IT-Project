@@ -2,9 +2,12 @@ import React, { useState }from 'react';
 import './forgetpass.scss'; // Import the CSS file
 import logo from "assets/Lets/logo1-2.png"
 import backgroundImage from "assets/Lets/Background3.jpg"
+import Button from 'components/Button/button';
 
 const Forgetpass = () => {
-    
+    const handleLoginClick = () => {
+        // Xử lý khi nhấn vào nút "Đăng Nhập"
+    };
 
     return (
         <div className="forgetpass-page" style={{
@@ -23,7 +26,7 @@ const Forgetpass = () => {
                         <label htmlFor="email">Email:</label>
                         <input type="email" id="email" placeholder="Nhập email của bạn" required />
                     </div>
-                    <button type="submit">Gửi yêu cầu</button>
+                    <Button text="Gửi yêu cầu" onClick={handleLoginClick} />
                 </form>
             </div>
     </div>

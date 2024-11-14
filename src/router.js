@@ -11,6 +11,7 @@ import Coursepage from "views/user/Productpage/Coursepage";
 import Providepage from "views/user/Productpage/Providepage";
 import Loginpage from "views/user/Loginpage";
 import Forgetpass from "views/user/Forgetpassword";
+import ProfilePage from "views/user/Profile";
 
 const RenderUserRouter = () => {
     const userRouters = [
@@ -23,6 +24,7 @@ const RenderUserRouter = () => {
         { path: ROUTERS.USER.PROVIDE, component: <Providepage/> },
         { path: ROUTERS.USER.LOGIN, component: <Loginpage/> },
         { path: ROUTERS.USER.FORGETPASS, component: <Forgetpass/> },
+        {path: ROUTERS.USER.PROFILE, component: <ProfilePage/>}
     ];  
 
     return (

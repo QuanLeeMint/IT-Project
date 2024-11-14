@@ -4,6 +4,7 @@ import logo from "assets/Lets/logo1-2.png"
 import backgroundImage from "assets/Lets/Background3.jpg"
 import { ROUTERS } from "utils/router";
 import { Link } from "react-router-dom";
+import Button from 'components/Button/button';
 const Loginpage = () => {
     const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
@@ -14,7 +15,12 @@ const Loginpage = () => {
     const handleSignInClick = () => {
         setIsRightPanelActive(false);
     };
-
+    const handleLoginClick = () => {
+        // Xử lý khi nhấn vào nút "Đăng Nhập"
+    };
+    const handleSignUp2Click = () => {
+        // Xử lý khi nhấn vào nút "Đăng Nhập"
+    };
     return (
         <div className="loginform" style={{
             backgroundImage: `url(${backgroundImage})`,
@@ -33,7 +39,7 @@ const Loginpage = () => {
                                 <h1>Đăng kí tài khoản</h1>
                                 <input type="email" placeholder="Email" />
                                 <input type="password" placeholder="Mật khẩu" />
-                                <button type="button">Đăng ký</button>
+                                <Button text="Đăng kí" onClick={handleSignUp2Click} />
                             </form>
                         </div>
 
@@ -50,7 +56,7 @@ const Loginpage = () => {
                                 <span>
                                     <Link to={ROUTERS.USER.FORGETPASS} className="link">Quên mật khẩu</Link>
                                 </span>
-                                <button type="button">Đăng nhập</button>
+                                <Button text="Đăng Nhập" onClick={handleLoginClick} />
                             </form>
                         </div>
 

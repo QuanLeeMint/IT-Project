@@ -1,0 +1,25 @@
+     .profile-page {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        
+        .profile-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+      
+          .profile-sections {
+            display: flex;
+            column-gap: 20px;
+            
+          }
+      
+          .account-progress {
+            display: flex;
+            gap: 20px;
+          }
+        }
+      }
+      
