@@ -1,6 +1,6 @@
 // Progress.scss
 .progress {
-    background-color: #f0f8ff;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -9,7 +9,14 @@
     align-items: center;
     gap: 10px;
     width: 40%;
-  
+    .logo{
+        height: 50%;
+        align-content: center;
+        .imglogo{
+          width:150px;
+          height: 150px;
+        }
+    }
     h2 {
       color: #333;
       font-size: 18px;

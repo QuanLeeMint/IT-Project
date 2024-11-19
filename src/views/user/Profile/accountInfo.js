@@ -1,17 +1,35 @@
-// AccountInfo.js
 import React from 'react';
 import './accountInfo.scss';
+import avatar from 'assets/Lets/avar.png'; // Thay bằng đường dẫn ảnh avatar của bạn
 
 const AccountInfo = () => {
   return (
     <div className="account-info">
-      <h2>Thông tin tài khoản</h2>
+      <div className="avar-form">
+        <img src={avatar} alt="User Avatar" className="avatar" />
+        <span className="username">Lê Minh Quân</span>
+      </div>
       <div className="info">
-        <p><strong>Họ và tên:</strong> Lê Minh Quân</p>
-        <p><strong>Địa chỉ email:</strong> quanheo2003@gmail.com</p>
-        <p><strong>Số điện thoại:</strong> 0937536507</p>
-        <p><strong>Ngày sinh:</strong> 2003-09-28</p>
-        <p><strong>Địa chỉ:</strong> A1/168 Phường Xã, Quận/Huyện</p>
+        <div className="info-item">
+          <label>Họ và tên</label>
+          <p>Lê Minh Quân</p>
+        </div>
+        <div className="info-item">
+          <label>Địa chỉ email</label>
+          <p>quanheo2003@gmail.com</p>
+        </div>
+        <div className="info-item">
+          <label>Số điện thoại</label>
+          <p>0937536507</p>
+        </div>
+        <div className="info-item">
+          <label>Ngày sinh</label>
+          <p>2003-09-28</p>
+        </div>
+        <div className="info-item">
+          <label>Địa chỉ</label>
+          <p>A1/168 Phường Xã, Quận/Huyện</p>
+        </div>
       </div>
     </div>
   );
