@@ -1,6 +1,6 @@
 // RouterCustom.js
 import { ROUTERS } from "./utils/router";
-import Homepage from "./views/user/Homepage";
+import Homepage from "./views/user/homepage";
 import Aboutpage from "./views/user/About";
 import MasterLayout from "./views/user/theme/masterLayout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
