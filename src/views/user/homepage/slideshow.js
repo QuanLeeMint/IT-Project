@@ -20,8 +20,10 @@ const Slideshow = () => {
     <div className="slideshow" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
       <div className="slideshow-content">
         <h1>Vị Cà Phê Quốc Dân</h1>
-        <p>Đây là cách mà chúng tôi đang làm để tạo ra giá trị cho hạt cà phê!...</p>
-        <p>Chúng tôi mong muốn phục vụ khách hàng, chất lượng cà phê tốt hơn mỗi ngày.</p>
+        <p>Đây là cách mà chúng tôi đang làm để tạo ra giá trị cho hạt cà phê !
+        Mong muốn cải thiện chất lượng cafe mỗi tốt hơn, nâng cao giá trị cho hạt cà phê và cho cả người nông dân !</p>
+        <p>Và cũng là giá trị tốt hơn mà chúng tôi sẽ phục vụ cho bạn.
+Chúng tôi mong muốn phục vụ khách hàng, chất lượng cà phê tốt hơn mỗi ngày </p>
       </div>
     </div>
   );

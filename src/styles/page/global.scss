@@ -57,9 +57,7 @@ body {
     margin-left: 50px;
     display: block; // Đảm bảo logo được căn giữa
   }
-  .logo{
-    margin-left: 70px;
-  }
+  
  // Desktop
  @include Responsive($DESKTOP) {
   .col-lg-3 {

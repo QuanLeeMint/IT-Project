@@ -1,38 +1,84 @@
-// @use "sass:map";
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-// @import "styles/page/theme";
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "styles/page/theme";
 
 
-// .forgetpass-page {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-    
-//   }
-  
-//   .form-container {
-//     background-color: rgba(255, 75, 43, 0.5); // Màu trắng trong suốt
-//     background: rgba(map.get($theme-colors, "main"), 0.7);
-//     padding: 2rem;
-//     border-radius: 12px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//     width: 100%;
-//     max-width: 400px;
-//     height: 300px;
-    
-//   }
-  
-//   .input-group {
-//     margin-bottom: 1.5rem;
-//   }
-  
-//   button {
-//     background-color: #333;
-//     color: #fff;
-//     padding: 0.5rem 1rem;
-//     border: none;
-//     border-radius: 4px;
-//     cursor: pointer;
-//   }
-  
+.forgetpass-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-container {
+        
+        width: 500px;
+        height: auto;
+        background-color:rgba(255, 255, 255, 0.7); /* Màu trắng với độ trong suốt 80% */
+        padding: 32px 24px;
+        font-size: 14px;
+        font-family: inherit;
+        color: #212121;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        h2{
+            margin: auto;
+            max-width: 100%;
+        }
+        label{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            ;
+
+        }
+        .logo {
+            margin: auto;
+            max-width: 100%;
+            
+        }
+        button {
+            border-radius: 20px;
+            border: 1px solid map.get($theme-colors,"main");
+            background-color: map.get($theme-colors,"main");
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+            margin-top: 15px;
+        }
+        
+        button:active {
+            transform: scale(0.7);
+        }
+        
+        button:focus {
+            outline: none;
+        }
+      }
+      .form-container  input {
+        width: 90%;
+        padding: 12px 16px;
+        border-radius: 6px;
+        font-family: inherit;
+        border: 1px solid #ccc;
+      }
+      
+      .form-container  input::placeholder {
+        opacity: 0.5;
+      }
+      
+      .form-container  input:focus {
+        outline: none;
+        border-color: map.get($theme-colors,"main");
+      }
+
+      
+  }
+ 
   

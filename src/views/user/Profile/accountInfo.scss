@@ -1,0 +1,64 @@
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "styles/page/theme";
+
+.account-info {
+  background-color: white ;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+
+  .avar-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 2px solid map.get($theme-colors,"main"); // Đường viền cho avatar
+    }
+
+    .username {
+      font-size: 20px;
+      font-weight: bold;
+      color: map.get($theme-colors,"main");
+    }
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: 1fr; // Mỗi mục là một dòng
+    gap: 15px;
+
+    .info-item {
+      position: relative;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      max-width: 70%;
+      label {
+        position: absolute;
+        top: -10px;
+        left: 15px;
+        background-color: #fdfff0;
+        padding: 0 5px;
+        font-size: 14px;
+        color: map.get($theme-colors,"main");
+      }
+
+      p {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+      }
+    }
+  }
+}

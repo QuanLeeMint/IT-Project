@@ -57,7 +57,7 @@ const Footer = () => {
                 <div className="row">
                     {/* Địa chỉ */}
                     <div className="col-lg-3 col-md-6 col-sm-4 footer-address">
-                        <h2>Address</h2>
+                        <h2>Địa chỉ</h2>
                         <ul>
                             <li><FaMapMarkerAlt /> 1, Lê Duẩn Street, Thành phố HCM, Việt Nam</li>
                             <li><FaPhoneAlt /> +84 908842985</li>
@@ -73,11 +73,11 @@ const Footer = () => {
 
                     {/* Giờ làm việc */}
                     <div className="col-lg-3 col-md-6 col-sm-4 footer-hours">
-                        <h2>Working Hours</h2>
+                        <h2>Giờ làm việc</h2>
                         <ul>
-                            <li>Monday - Friday: 8 AM - 8 PM</li>
-                            <li>Saturday: 9 AM - 5 PM</li>
-                            <li>Sunday: Closed</li>
+                            <li>Thứ hai - Thứ sáu: 8 AM - 8 PM</li>
+                            <li>Thứ 7 : 9 AM - 5 PM</li>
+                            <li>Chủ nhật : Closed</li>
                         </ul>
                     </div>
 
@@ -112,10 +112,10 @@ const Footer = () => {
 
                     {/* Bản tin */}
                     <div className="col-lg-3 col-md-6 col-sm-12 footer-subscription">
-                        <h2>Newsletter</h2>
-                        <p>Sign up to receive updates and special offers</p>
-                        <input type="email" placeholder="Enter your email" />
-                        <button>Subscribe</button>
+                        <h2>Tin tức mới</h2>
+                        <p>Nhập email của bạn để nhận thêm thông tin...</p>
+                        <input type="email" placeholder="Email" />
+                        <button>Gửi</button>
                     </div>
                 </div>
             </div>

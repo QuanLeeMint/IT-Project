@@ -107,7 +107,9 @@ const Header = () => {
                 <div className="container">
                     <div className="row">
                         <div className="header-logo">
+                            <Link to ={ROUTERS.USER.HOME}>
                             <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
+                            </Link>
                                 
                             
                         </div>
