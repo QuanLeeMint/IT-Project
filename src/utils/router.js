@@ -10,7 +10,9 @@ export const ROUTERS = {
         COURSE:"/course",
         COFFEE:"/coffee",
         LOGIN:"/login",
-        FORGETPASS:"/forgetpass"
+        FORGETPASS:"/forgetpass",
+        CART:"/cart"
+        
 
     },
 };

@@ -1,0 +1,120 @@
+@use "sass:map";
+@import "styles/page/theme";
+
+.cart-page {
+  padding: 20px;
+
+  .cart-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .cart-content {
+    display: flex;
+    justify-content: space-between;
+
+    .cart-items {
+      width: 65%;
+      max-height: 400px; // Chiều cao tối đa cho danh sách sản phẩm
+      overflow-y: auto;  // Thêm thanh cuộn dọc
+      padding-right: 10px; // Khoảng cách nội dung với thanh cuộn
+
+      /* Tùy chỉnh thanh cuộn */
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: darken(#ddd, 10%);
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+
+        .item-image {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        .item-details {
+          flex: 1;
+          margin-left: 15px;
+
+          .item-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+
+          .item-price {
+            margin: 10px 0;
+          }
+
+          .item-quantity {
+            display: flex;
+            align-items: center;
+          }
+
+          .remove-button {
+            margin-top: 10px;
+            color: red;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+          }
+
+          .btn-in-de {
+            border-width: 0ch;
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            font-size: 1.2rem;
+            background-color: map.get($theme-colors, "main");
+          }
+        }
+
+        .item-total {
+          align-self: center;
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .cart-summary {
+      width: 30%;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      .cart-buttons{
+        display: flex;
+        column-gap: 10px;
+      }  
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 1rem;
+      }
+    }
+  }
+}

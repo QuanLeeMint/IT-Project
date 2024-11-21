@@ -144,7 +144,7 @@ const Header = () => {
                             <div className="cart-logo">
                                 <ul>
                                     <li>
-                                        <Link to="#">
+                                        <Link to={ROUTERS.USER.CART}>
                                             <AiOutlineShoppingCart />
                                             <span>5</span>
                                         </Link>

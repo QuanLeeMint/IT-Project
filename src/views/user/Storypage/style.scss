@@ -41,7 +41,7 @@
   }
   
   span.active {
-    background-color: #ffab40;
+    background-color: map.get($theme-colors,"main");
     color: #fff;
   }
   
