@@ -3,8 +3,42 @@
 @import "styles/page/theme";
 
 .from-farm-to-cup {
-  padding: 1rem;
-  background-color: #fff;
+ 
+  .story-header {
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    /* Lớp phủ đổ bóng */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 58%;
+        background: rgba(0, 0, 0, 0.5); /* Màu đen mờ */
+        z-index: 1;
+    }
+
+    /* Chữ hiển thị phía trên lớp phủ */
+    h1 {
+        position: relative;
+        z-index: 2;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-left: 40px;
+    }
+  }
+  .story-content{
+    padding: 1rem;
+    background-color: #fff;
+  }
 }
 
 .section-title {
