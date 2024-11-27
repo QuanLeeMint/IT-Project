@@ -4,9 +4,10 @@ import './button_cart.scss';
 
 const Button_cart = ({ text, onClick,icon }) => {
     return (
-        <button className="custom-button" onClick={onClick}>
-            {text}
+        <button className="custom-button-cart" onClick={onClick}>
             {icon && <span className="button-icon">{icon}</span>}
+            {text}
+            
         </button>
     );
 };

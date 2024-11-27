@@ -11,7 +11,8 @@ export const ROUTERS = {
         COFFEE:"/coffee",
         LOGIN:"/login",
         FORGETPASS:"/forgetpass",
-        CART:"/cart"
+        CART:"/cart",
+        DETAIL:"/product_detail"
         
 
     },

@@ -13,6 +13,7 @@ import Loginpage from "views/user/Loginpage";
 import Forgetpass from "views/user/Forgetpassword";
 import ProfilePage from "views/user/Profile";
 import Cartpage from "views/user/Cart"
+import ProductDetail from "views/user/Detail";
 
 const RenderUserRouter = () => {
     const userRouters = [
@@ -26,7 +27,8 @@ const RenderUserRouter = () => {
         { path: ROUTERS.USER.LOGIN, component: <Loginpage/> },
         { path: ROUTERS.USER.FORGETPASS, component: <Forgetpass/> },
         {path: ROUTERS.USER.PROFILE, component: <ProfilePage/>},
-        {path: ROUTERS.USER.CART, component: <Cartpage/>}
+        {path: ROUTERS.USER.CART, component: <Cartpage/>},
+        {path: ROUTERS.USER.DETAIL, component: <ProductDetail/>}
 
     ];  
 

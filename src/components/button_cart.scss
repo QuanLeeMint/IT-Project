@@ -1,36 +1,35 @@
 @use "sass:map";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 @import "styles/page/theme";
-.custom-button{
-    
-        border-radius: 20px;
-        border: 1px solid map.get($theme-colors,"main");
-        background-color: map.get($theme-colors,"main");
-        color: map.get($theme-colors,"normal-text");
-        font-size: 12px;
-        font-weight: bold;
-        padding: 12px 45px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: transform 80ms ease-in;
-        margin-top: 15px;
-    
-        .ghost {
-            background-color: transparent;
-            border-color: #FFFFFF;
-        }
-    
-}
-.custom-button:active {
+.custom-button-cart {
+    display: inline-flex; /* Dùng flexbox để căn chỉnh */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    border-radius: 20px;
+    border: 1px solid map.get($theme-colors, "main");
+    background-color: map.get($theme-colors, "main");
+    color: map.get($theme-colors,"normal-text");
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 15px;
+  
+    .button-icon {
+      font-size: 18px;
+      margin-right: 5px;
+      display: inline-block; /* Đảm bảo nó không nhảy dòng */
+    }
+  }
+  
+  .custom-button-cart:active {
     transform: scale(0.7);
-}
-
-.custom-button:focus {
+  }
+  
+  .custom-button-cart:focus {
     outline: none;
-}
-.button-icon{
-    font-size: 15px;
-    padding-left: 1px;
-    
-    
-}
+  }
+  
+
