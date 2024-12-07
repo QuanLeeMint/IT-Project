@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './login.scss'; // Import the CSS file
+import './login.scss'; // Import file CSS
 import logo from "assets/Lets/logo1-2.png";
 import backgroundImage from "assets/Lets/Background3.jpg";
 import { ROUTERS } from "utils/router";
@@ -7,7 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Loginpage = () => {
     const [isRightPanelActive, setIsRightPanelActive] = useState(false);
-    const navigate = useNavigate();  // Hook dùng để điều hướng người dùng
+    const [email, setEmail] = useState(""); 
+    const navigate = useNavigate();
 
     const handleSignUpClick = () => {
         setIsRightPanelActive(true);
@@ -17,59 +18,83 @@ const Loginpage = () => {
         setIsRightPanelActive(false);
     };
 
-    const handleSignUp = async () => {
+    const handleSignUp = async (event) => {
+        event.preventDefault(); 
         const email = document.querySelector(".form-1 input[type='email']").value;
-    const password = document.querySelector(".form-1 input[type='password']").value;
+        const password = document.querySelector(".form-1 input[type='password']").value;
 
-    try {
-        // Gửi dữ liệu đăng ký đến API
-        const response = await fetch('http://localhost:3001/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            // Đăng ký thành công
-            console.log("Đăng ký thành công", data);
-            alert('Đăng ký thành công');
-        } else {
-            // Nếu API trả về lỗi, hiển thị thông báo lỗi
-            console.log("Lỗi đăng ký", data);
-            alert(data.message || 'Đăng ký thất bại'); // Hiển thị thông báo lỗi từ API
+        if (!email || !password) {
+            alert("Email và mật khẩu không được để trống!");
+            return;
         }
-    } catch (error) {
-        // Xử lý lỗi nếu API không phản hồi hoặc lỗi hệ thống
-        console.log("Lỗi kết nối API", error);
-        alert('Có lỗi xảy ra, vui lòng thử lại!');
-    }
+
+        try {
+            const response = await fetch('http://localhost:3001/api/register', {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Đăng ký thành công", data);
+                alert('Đăng ký thành công');
+                setIsRightPanelActive(false);  
+            } else {
+                console.log("Lỗi đăng ký", data);
+                alert(data.message || 'Đăng ký thất bại');
+            }
+        } catch (error) {
+            console.log("Lỗi kết nối API", error);
+            alert('Có lỗi xảy ra, vui lòng thử lại!');
+        }
     };
 
-    const handleSignIn = async () => {
+    const handleSignIn = async (event) => {
+        event.preventDefault(); 
+
         const email = document.querySelector(".form-2 input[type='email']").value;
         const password = document.querySelector(".form-2 input[type='password']").value;
-
-        // Gửi dữ liệu đăng nhập đến API
-        const response = await fetch('http://localhost:3001/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            // Xử lý đăng nhập thành công
-            console.log("Đăng nhập thành công", data);
-            // Chuyển hướng đến trang homepage
-            navigate('/homepage');  // Điều hướng đến trang chính sau khi đăng nhập thành công
-        } else {
-            // Xử lý lỗi đăng nhập
-            console.log("Lỗi đăng nhập", data);
+    
+        if (!email || !password) {
+            alert("Email và mật khẩu không được để trống!");
+            return;
+        }
+    
+        try {
+            const response = await fetch('http://localhost:3001/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                if (data?.token) {
+                    localStorage.setItem("token", data.token);
+                    alert("Đăng nhập thành công!");
+                
+                    const redirectPath = localStorage.getItem('redirectPath');
+                    if (redirectPath) {
+                        navigate(redirectPath); // Điều hướng tới profile nếu có URL lưu
+                        localStorage.removeItem('redirectPath');
+                    } else {
+                        navigate('/homepage');
+                    }
+                } else {
+                    alert('Không tìm thấy token!');
+                }
+            } else {
+                alert(data.message || 'Email hoặc mật khẩu không đúng');
+            }
+        } catch (error) {
+            console.error("Lỗi kết nối API", error);
+            alert('Không thể kết nối đến máy chủ. Vui lòng thử lại sau!');
         }
     };
 
@@ -83,21 +108,22 @@ const Loginpage = () => {
             <div className='box'>
                 <div className='login-container'>
                     <div className={`container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
+                        {/* Signup form */}
                         <div className="form-container sign-up-container">
-                            <form className='form-1'>
+                            <form className='form-1' onSubmit={handleSignUp}>
                                 <div className="social-container">
                                     <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
                                 </div>
                                 <h1>Đăng kí tài khoản</h1>
                                 <input type="email" placeholder="Email" />
                                 <input type="password" placeholder="Mật khẩu" />
-                                <button type="button" onClick={handleSignUp}>Đăng ký</button>
+                                <button type="submit">Đăng ký</button>
                             </form>
                         </div>
 
-                        {/* Sign In Container */}
+                        {/* Signin form */}
                         <div className="form-container sign-in-container">
-                            <form className='form-2'>
+                            <form className='form-2' onSubmit={handleSignIn}>
                                 <div className="logo">
                                     <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
                                 </div>
@@ -107,11 +133,11 @@ const Loginpage = () => {
                                 <span>
                                     <Link to={ROUTERS.USER.FORGETPASS} className="link">Quên mật khẩu</Link>
                                 </span>
-                                <button type="button" onClick={handleSignIn}>Đăng nhập</button>
+                                <button type="submit">Đăng nhập</button>
                             </form>
                         </div>
 
-                        {/* Overlay Container */}
+                        {/* Overlay for switching between forms */}
                         <div className="overlay-container">
                             <div className="overlay">
                                 <div className="overlay-panel overlay-left">
@@ -121,7 +147,7 @@ const Loginpage = () => {
                                 </div>
                                 <div className="overlay-panel overlay-right">
                                     <h1>Welcome to Let's Cafe</h1>
-                                    <p>Form farm to cup</p>
+                                    <p>From farm to cup</p>
                                     <button className="ghost" onClick={handleSignUpClick}>Đăng kí</button>
                                 </div>
                             </div>
@@ -129,6 +155,15 @@ const Loginpage = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Display the user's email after login */}
+            {email && (
+                <div className="user-info">
+                    <p>
+                        Chào mừng <Link to="/profile" className="profile-link">{email}</Link>
+                    </p>
+                </div>
+            )}
         </div>
     );
 };

@@ -4,7 +4,7 @@ import "./style.scss";
 import colompia from "assets/Lets/columbia.png"
 import ethiopia from "assets/Lets/ethi.png"
 import { formatter } from "utils/format";
-import Button_cart from "components/button_cart";
+import ButtonCart from "components/button_cart";
 import { useNavigate } from 'react-router-dom';
 const Cartpage = () => {
   const navigate = useNavigate();
@@ -27,9 +27,9 @@ const Cartpage = () => {
     navigate('/coffee');
   };
 
-  const handleCheckout = () => {
-    console.log("Checkout");
-  };
+  // const handleCheckout = () => {
+  //   console.log("Checkout");
+  // };
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -63,11 +63,10 @@ const Cartpage = () => {
           <p>Thuế và phí vận chuyển được tính khi thanh toán</p>
           {/* Sử dụng Button component */}
           <div className="cart-buttons">
-            <Button_cart type="secondary" text="Mua tiếp tục ➡" className="color-text" onClick={() => handleNavigate()}>
-            </Button_cart>
-            <Button_cart type="primary"  text="Thanh toán"className="color-text">
-                
-            </Button_cart>
+            <ButtonCart type="secondary" text="Mua tiếp tục ➡" className="color-text" onClick={() => handleNavigate()}>
+            </ButtonCart>
+            <ButtonCart type="primary"  text="Thanh toán"className="color-text">
+            </ButtonCart>
           </div>
         </div>
       </div>
