@@ -86,13 +86,14 @@
       
             .course-item {
               position: absolute;
-              top: -3%;
+              top: -45px;
               left: 50%;
               transform: translateX(-50%);
               opacity: 0;
               transition: all 0.5s ease;
               width: 300px;
               text-align: center;
+              
       
               &.activeSlide {
                 opacity: 1;

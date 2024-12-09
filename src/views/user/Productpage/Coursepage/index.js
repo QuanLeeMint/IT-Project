@@ -4,29 +4,34 @@ import backgroundImage from 'assets/Lets/quan.jpg';
 import handdrew_course from "assets/Lets/handdrew.jpg";
 import latte_course from "assets/Lets/img.png";
 import basic_coffee from "assets/Lets/img_1.png";
+import { formatter } from 'utils/format';
 
 const courses = [
   {
     title: 'Giới thiệu căn bản về cà phê',
     description: 'Khám phá lịch sử, hành trình from farm to cup, và các phương pháp pha cà phê cơ bản.',
+    price: '1000000',
     teacher: 'Nguyễn Hoàng Giang Nam',
     image: basic_coffee,
   },
   {
     title: 'Handdrew',
     description: 'Khóa học này cho ta tiếp cận đến những kiểu pha cà phê thủ công. Tiêu hiểu về các loại cà phê đặc sản ở các nước khác.',
+    price: '5000000',
     teacher: 'Nguyễn Hoàng Giang Nam',
     image: handdrew_course,
   },
   {
     title: 'Latte Art',
     description: 'Khóa Latte Art đào tạo kỹ thuật tạo hình cà phê chuyên nghiệp, dành cho barista muốn nâng cao tay nghề.',
+    price: '7000000',
     teacher: 'Nguyễn Hoàng Giang Nam',
     image: latte_course,
   },
   {
     title: 'Latte Art',
     description: 'Khóa Latte Art đào tạo kỹ thuật tạo hình cà phê chuyên nghiệp, dành cho barista muốn nâng cao tay nghề.',
+    price: '7000000',
     teacher: 'Nguyễn Hoàng Giang Nam',
     image: latte_course,
   },
@@ -70,9 +75,11 @@ const Course = () => {
                     <h3>{course.title}</h3>
                     <p>{course.description}</p>
                     <span>Giảng viên: {course.teacher}</span>
+                    <p className="course-price">Giá:  {formatter(course.price)}</p>
                   </div>
                 </div>
               );
+              
             })}
           </div>
 
