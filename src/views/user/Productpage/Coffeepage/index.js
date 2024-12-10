@@ -42,11 +42,15 @@ const ProductPage = () => {
             data-aos="fade-up"
             onClick={() => handleProductClick(product)} // Thêm sự kiện click
           >
-            <img
-              src={require('../../../../assets/Lets/' + product.imgUrl.split('/').pop())}
-              alt={product.productName}
-              className="product-image"
-            />
+            {product.imgUrl?.split("/")?.pop() ? (
+    <img
+      src={require(`../../../../assets/Lets/${product.imgUrl?.split("/").pop()}`)}
+      alt={product.productName}
+      className="product-image"
+    />
+  ) : (
+    <div className="no-image">Không có ảnh</div>
+  )}
             <div className="product-info">
               <h3>{product.productName}</h3>
               <p>{product.description}</p>

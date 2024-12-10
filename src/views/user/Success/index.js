@@ -49,7 +49,7 @@ const Success = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          userId, // Thêm userId vào payload
+          userId, 
           cartItems: storedCart,
           subtotal: storedCart.reduce((sum, item) => sum + item.price * item.quantity, 0),
         }),

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.scss'; // Import file CSS
+import {jwtDecode} from 'jwt-decode';
 import logo from "assets/Lets/logo1-2.png";
 import backgroundImage from "assets/Lets/Background3.jpg";
 import { ROUTERS } from "utils/router";
@@ -69,25 +70,33 @@ const Loginpage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password,  }),
             });
     
             const data = await response.json();
     
             if (response.ok) {
                 if (data?.token) {
+        
                     localStorage.setItem("token", data.token);
-                    localStorage.setItem("userEmail", email); // Lưu email vào localStorage
+                    const decodedToken = jwtDecode(data.token); // Giải mã token
+                    console.log("token sau khi nhan" ,decodedToken);
+                    localStorage.setItem("userEmail", email); 
                     setEmail(email); 
                     alert("Đăng nhập thành công!");
+
+                    if (decodedToken.role_id === 'admin') {
+                        navigate('/admin');
+                      } else {
+                        const redirectPath = localStorage.getItem('redirectPath');
+                        if (redirectPath) {
+                            navigate(redirectPath); // Điều hướng tới profile nếu có URL lưu
+                            localStorage.removeItem('redirectPath');
+                        } else {
+                            navigate('/homepage');
+                        }
+                      }
                 
-                    const redirectPath = localStorage.getItem('redirectPath');
-                    if (redirectPath) {
-                        navigate(redirectPath); // Điều hướng tới profile nếu có URL lưu
-                        localStorage.removeItem('redirectPath');
-                    } else {
-                        navigate('/homepage');
-                    }
                 } else {
                     alert('Không tìm thấy token!');
                 }
