@@ -1,0 +1,78 @@
+.coffee-table {
+    max-width: 95%;
+    margin: 0 auto;
+    border: 1px solid #ffa500;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 95%;
+    max-height: 500px; 
+    overflow-y: auto; // Hiển thị thanh cuộn dọc khi cần
+    h1{
+      font-size: 20px;
+      
+    }
+    table {
+      width: 100%;
+      height: 100%;  
+      border-collapse: collapse;
+     
+  
+      th {
+        position: sticky;
+        top: 0; // Giữ cố định phần tiêu đề khi cuộn
+        background-color: #ffa500;
+        color: #fff;
+        padding: 12px;
+        text-align: left;
+        font-size: 16px;
+        z-index: 1;
+      }
+  
+      td {
+        padding: 10px;
+        text-align: left;
+        font-size: 14px;
+        border: 1px solid #ffa500;
+        color: #333;
+      }
+  
+      .coffee-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #fff7e6;
+      }
+  
+      .btn-edit {
+        padding: 6px 12px;
+        background-color: #0275d8;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #025aa5;
+        }
+      }
+  
+      .btn-delete {
+        padding: 6px 12px;
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #c9302c;
+        }
+      }
+    }
+  }
+  

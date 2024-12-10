@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../header";
-import Footer from "../footer";
+import Footer from "../../../admin/common/footer";
 
 const MasterLayout = ({ children, ...props }) => {
     const location = useLocation();

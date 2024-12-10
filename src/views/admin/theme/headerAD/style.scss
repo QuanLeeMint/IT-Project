@@ -1,0 +1,279 @@
+@use "sass:map";
+@import "styles/page/theme";
+.header {
+    position: sticky; // Để làm cho header cố định
+    top: 0; // Đặt vị trí đầu tiên trên cùng
+    left: 0; // Đặt vị trí bên trái
+    right: 0; // Đặt vị trí bên phải
+    z-index: 1000; // Đảm bảo header nổi bật hơn các phần khác
+    background-color: #fff; // Màu nền cho header
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Đổ bóng cho header
+    transition: all 0.3s ease; // Hiệu ứng chuyển tiếp cho các thay đổi
+}
+
+.header-top-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; // Đảm bảo căn giữa theo chiều dọc   
+
+    ul {
+        display: flex;
+        column-gap: 15px;
+        list-style: none;
+        align-items: center;
+        padding-right: 30px;
+
+        li {
+            display: flex; // Để các phần tử con căn chỉnh tốt hơn
+            align-items: center; // Căn giữa các phần tử theo chiều dọc
+
+            a {
+                color: map.get($theme-colors, "normal-text");
+                text-decoration: none;
+                font-size: 20px;
+                display: flex; // Thay đổi để sử dụng flex
+                align-items: center; // Căn giữa các phần tử trong link
+
+                &:hover {
+                    color: hwb(67 4% 60%);
+                }
+                
+            }
+            .link{
+                font-size: 16px;
+            }
+            
+
+            &:last-child {
+                cursor: pointer;
+                margin-left: 10px;
+
+                span {
+                    margin-left: 10px; // Không gian giữa biểu tượng và chữ
+                    font-size: 18px;
+                    display: flex; // Sử dụng flex để căn chỉnh nếu cần
+                    align-items: center; // Căn giữa chữ
+                    line-height: 24px; // Điều chỉnh line-height cho cân đối
+                   
+                }
+            }
+        }
+    }
+}
+
+.header-top-left{
+    ul{
+        display: flex;
+        align-items: center; // Đảm bảo căn giữa theo chiều dọc
+        list-style: none;
+        column-gap: 20px;
+        
+
+        li {
+            display: flex; // Để các phần tử con căn chỉnh tốt hơn
+            align-items: center; // Căn giữa các phần tử theo chiều dọc
+            font-size: 17px;
+            a {
+                color: map.get($theme-colors, "normal-text");
+                text-decoration: none;
+                font-size: 20px;
+                display: flex; // Thay đổi để sử dụng flex
+                align-items: center; // Căn giữa các phần tử trong link
+
+                &:hover {
+                    color: hwb(67 4% 60%);
+                }
+            }
+
+            &:first-child {
+                position: relative;
+                &:after{
+                    position: absolute;
+                    top: 1px;
+                    right: -10px;
+                    height: 30px;
+                    width: 2px;
+                    background: black;
+                    opacity: 0.1;
+                    content: "";
+
+                }
+
+
+                span {
+                    margin-left: 10px; // Không gian giữa biểu tượng và chữ
+                    font-size: 20px;
+                    display: flex; // Sử dụng flex để căn chỉnh nếu cần
+                    align-items: center; // Căn giữa chữ
+                    line-height: 24px; // Điều chỉnh line-height cho cân đối
+                }
+            }
+        }
+    }
+}
+
+.header-logo{
+    margin-left: 30px;
+    margin-top: 20px;
+    
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-around; // Căn đều các phần tử trong menu
+    align-items: center;
+    margin-right: 70px;
+
+    ul {
+        display: flex;
+        gap: 60px; // Khoảng cách giữa các mục menu
+        list-style: none;
+    }
+    .active a{
+        color: map.get($theme-colors,"main");
+    }
+
+    .header-menu-dropdown {
+        background-color: rgba(255, 255, 255, 0.8); // Màu trắng với độ trong suốt 80%
+        display: block;
+        position: absolute;
+        width: 200px;
+        z-index: 10;
+        padding: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+        li {
+            a {
+                color: black;
+                padding: 10px 15px;
+                font-size: 14px; // Kích cỡ chữ to hơn một chút
+                text-decoration: none;
+                display: block;
+                transition: background-color 0.3s ease, color 0.3s ease;
+    
+                &:hover {
+                    background-color: map.get($theme-colors,"main"); // Đổi màu nền khi hover
+                    color: black; // Đổi màu chữ khi hover
+                    border-radius: 5px; // Thêm bo góc cho liên kết khi hover
+                }
+            }
+        }
+        
+        // Hiển thị dropdown khi di chuột vào phần tử cha
+        .parent:hover .header-menu-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    
+
+    li:hover .header-menu-dropdown{
+        opacity: 1;
+        visibility: visible;
+    }
+    li {
+        list-style: none;
+        position: relative;
+        
+        a {
+            
+            text-decoration: none;
+            font-size: 15px;
+            color: map.get($theme-colors,"normal-text"); // Màu chữ
+
+            letter-spacing: 2px;
+            &:hover {
+                color: map-get($theme-colors,"main" ); // Màu khi hover
+            }
+        }
+    }
+}
+
+
+.header-cart{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 24px 0;
+    max-width: 25%;
+    ul{
+        display: flex;
+        margin-right: 25px;
+    }
+    li{
+        list-style: none;
+        position: relative;
+        margin-left: -25px;
+
+        svg{
+            font-size: 25px;
+            color: map-get($theme-colors,"normal-text");
+        }
+        span{
+            color: white;
+            background: map.get($theme-colors,"main");
+            position:absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            left: 20px;
+            top: -2px;
+        };
+        
+    }
+}
+.header-cart-price{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 24px 0;
+}
+.header-dashboard {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .dashboard-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label {
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  

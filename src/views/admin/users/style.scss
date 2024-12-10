@@ -1,0 +1,59 @@
+.user-list-page {
+    padding: 20px;
+    background-color: #fff;
+  
+    .title {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+  
+    .user-table {
+      max-width: 100%;
+      margin: 0 auto;
+      border: 1px solid #ffa500;
+      border-radius: 8px;
+      overflow: hidden;
+      
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th {
+          background-color: #ffa500;
+          color: #fff;
+          padding: 12px;
+          text-align: left;
+          font-size: 16px;
+        }
+  
+        td {
+          padding: 10px;
+          text-align: left;
+          font-size: 14px;
+          border: 1px solid #ffa500;
+          color: #333;
+        }
+  
+        tr:nth-child(even) {
+          background-color: #fff7e6;
+        }
+  
+        .btn-delete {
+          padding: 6px 12px;
+          background-color: #d9534f;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #c9302c;
+          }
+        }
+      }
+    }
+  }
+  
