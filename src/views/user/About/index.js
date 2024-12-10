@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
-import './about.scss';
+import './About.scss';
 import backgroundImage from 'assets/Lets/quan.jpg';
 import image1 from 'assets/Lets/workshop.jpg';
 import image2 from 'assets/Lets/roast.jpg';
 import image3 from 'assets/Lets/farm.jpg';
-import pdfFile from 'assets/Lets/profile.pdf'; // Thay đổi đường dẫn đến file PDF của bạn
+import pdfFile from 'assets/Lets/profile.pdf'; // Đường dẫn tới file PDF
 
 const Aboutpage = () => {
     return (
@@ -26,7 +26,7 @@ const Aboutpage = () => {
                             <button>XEM CHI TIẾT</button>
                         </a>
                     </div>
-                    <img src={image1} alt="Company info" className="about-image" />
+                    <img src={image1} alt="Thông tin doanh nghiệp" className="about-image" />
                 </div>
 
                 {/* Giá trị cốt lõi */}
@@ -34,12 +34,10 @@ const Aboutpage = () => {
                     <div className="text-content-2">
                         <h2>GIÁ TRỊ CỐT LÕI</h2>
                         <p className="subtitle">TẦM NHÌN SỨ MỆNH</p>
-                        <p className="description">Let's Café được nhiều người nhớ đến với sự chú trọng vào việc tạo ra những ly cà phê chuẩn Gu và nổi bật với dòng sản phẩm Gu Đậm, hấp dẫn để chinh phục mọi khách hàng, kể cả những người khó tính nhất. Bí quyết của Let's Café bắt đầu từ việc sử dụng 100% hạt robusta chất lượng cao, một loại hạt cà phê mạnh mẽ và có hương vị đặc trưng.  Đừng giữ trong lòng, hãy chia sẻ với chúng mình điều bạn mong muốn để cùng nhau giúp Let's Cafe trở nên tuyệt vời hơn</p>
-                        <a >
-                            <button>XEM CHI TIẾT</button>
-                        </a>
+                        <p className="description">Let's Café được nhiều người nhớ đến với sự chú trọng vào việc tạo ra những ly cà phê chuẩn Gu và nổi bật với dòng sản phẩm Gu Đậm, hấp dẫn để chinh phục mọi khách hàng, kể cả những người khó tính nhất. Bí quyết của Let's Café bắt đầu từ việc sử dụng 100% hạt robusta chất lượng cao, một loại hạt cà phê mạnh mẽ và có hương vị đặc trưng. Đừng giữ trong lòng, hãy chia sẻ với chúng mình điều bạn mong muốn để cùng nhau giúp Let's Cafe trở nên tuyệt vời hơn</p>
+                        <button onClick={() => alert('Chức năng đang phát triển')}>XEM CHI TIẾT</button>
                     </div>
-                    <img src={image2} alt="Core values" className="about-image" />
+                    <img src={image2} alt="Giá trị cốt lõi" className="about-image" />
                 </div>
 
                 {/* Văn hóa doanh nghiệp */}
@@ -52,7 +50,7 @@ const Aboutpage = () => {
                             <button>XEM CHI TIẾT</button>
                         </a>
                     </div>
-                    <img src={image3} alt="Culture" className="about-image" />
+                    <img src={image3} alt="Văn hóa doanh nghiệp" className="about-image" />
                 </div>
             </section>
         </div>

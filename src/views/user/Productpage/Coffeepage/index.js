@@ -1,100 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./coffee.scss" // Tạo file CSS này cho các styles
-import colombia from 'assets/Lets/columbia.png';
-import kenya from 'assets/Lets/kenya.png';
-import ethi from 'assets/Lets/ethi.png';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./coffee.scss";
+
 const ProductPage = () => {
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
+  const [products, setProducts] = useState([]); // State lưu thông tin sản phẩm
+  const navigate = useNavigate();
 
-    const products = [
-        {
-            name: "DRIP BAG",   
-            subtitle: "Colombia",
-            price: "25K",
-            imgSrc: colombia,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Kenya",
-            price: "25K",
-            imgSrc: kenya,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        {
-            name: "DRIP BAG",
-            subtitle: "Ethiopia",
-            price: "25K",
-            imgSrc: ethi ,
-        },
-        // Add more products as needed
-    ];
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
 
-    return (
-        <div className="product-page">
-            <h2 className="page-title">_Menu cà phê gói lẻ_</h2>
-            <div className="product-grid">
-                {products.map((product, index) => (
-                    <div
-                        key={index}
-                        className="product-card"
-                        data-aos="fade-up"
-                    >
-                        <img src={product.imgSrc} alt={product.name} className="product-image" />
-                        <div className="product-info">
-                            <h3>{product.name}</h3>
-                            <p>{product.subtitle}</p>
-                            <span className="price">{product.price}</span>
-                        </div>
-                    </div>
-                ))}
+    // Gọi API từ server
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/coffee');
+        setProducts(response.data); // Cập nhật thông tin sản phẩm
+      } catch (error) {
+        console.error("Không thể load thông tin sản phẩm:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Hàm xử lý click vào sản phẩm
+  const handleProductClick = (product) => {
+    sessionStorage.setItem('selectedProduct', JSON.stringify(product)); 
+    navigate('/product_detail'); 
+  };
+
+  return (
+    <div className="product-page">
+      <h2 className="page-title">_Menu cà phê gói lẻ_</h2>
+      <div className="product-grid">
+        {products.map((product, index) => (
+          <div
+            key={index}
+            className="product-card"
+            data-aos="fade-up"
+            onClick={() => handleProductClick(product)} // Thêm sự kiện click
+          >
+            <img
+              src={require('../../../../assets/Lets/' + product.imgUrl.split('/').pop())}
+              alt={product.productName}
+              className="product-image"
+            />
+            <div className="product-info">
+              <h3>{product.productName}</h3>
+              <p>{product.description}</p>
+              <span className="price">{product.price}K</span>
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default ProductPage;

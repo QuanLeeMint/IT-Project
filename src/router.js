@@ -1,6 +1,6 @@
 // RouterCustom.js
 import { ROUTERS } from "./utils/router";
-import Homepage from "./views/user/Homepage";
+import Homepage from "./views/user/homepage";
 import Aboutpage from "./views/user/About";
 import MasterLayout from "./views/user/theme/masterLayout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -14,6 +14,7 @@ import Forgetpass from "views/user/Forgetpassword";
 import ProfilePage from "views/user/Profile";
 import Cartpage from "views/user/Cart"
 import ProductDetail from "views/user/Detail";
+import Success from "views/user/Success";
 
 const RenderUserRouter = () => {
     const userRouters = [
@@ -28,8 +29,8 @@ const RenderUserRouter = () => {
         { path: ROUTERS.USER.FORGETPASS, component: <Forgetpass/> },
         {path: ROUTERS.USER.PROFILE, component: <ProfilePage/>},
         {path: ROUTERS.USER.CART, component: <Cartpage/>},
-        {path: ROUTERS.USER.DETAIL, component: <ProductDetail/>}
-
+        {path: ROUTERS.USER.DETAIL, component: <ProductDetail/>},
+        {path: ROUTERS.USER.SUCCESS, component: <Success/>}
     ];  
 
     return (

@@ -12,8 +12,7 @@ export const ROUTERS = {
         LOGIN:"/login",
         FORGETPASS:"/forgetpass",
         CART:"/cart",
-        DETAIL:"/product_detail"
-        
-
+        DETAIL:"/product_detail",
+        SUCCESS:"/vnpay_return"
     },
 };
