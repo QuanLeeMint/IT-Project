@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./coffee.scss";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]); // State lưu thông tin sản phẩm
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -23,6 +25,12 @@ const ProductPage = () => {
     fetchProducts();
   }, []);
 
+  // Hàm xử lý click vào sản phẩm
+  const handleProductClick = (product) => {
+    sessionStorage.setItem('selectedProduct', JSON.stringify(product)); 
+    navigate('/product_detail'); 
+  };
+
   return (
     <div className="product-page">
       <h2 className="page-title">_Menu cà phê gói lẻ_</h2>
@@ -32,10 +40,11 @@ const ProductPage = () => {
             key={index}
             className="product-card"
             data-aos="fade-up"
+            onClick={() => handleProductClick(product)} // Thêm sự kiện click
           >
             <img
-              src={product.imgUrl} 
-              alt={product.name}
+              src={require('../../../../assets/Lets/' + product.imgUrl.split('/').pop())}
+              alt={product.productName}
               className="product-image"
             />
             <div className="product-info">

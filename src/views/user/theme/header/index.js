@@ -13,14 +13,22 @@ import { ROUTERS } from "utils/router";
 const Header = () => {
     const location = useLocation(); // Get the current path
     const [userEmail, setUserEmail] = useState(null); // State to store email
-
-    // Get email from localStorage if it exists
+    const [cartCount, setCartCount] = useState(0);
+    
     useEffect(() => {
+        // Lấy email từ localStorage
         const email = localStorage.getItem("userEmail");
+        console.log('Email từ localStorage:', email);
         if (email) {
             setUserEmail(email);
+        } else {
+            setUserEmail("Đăng nhập");
         }
-    }, []); // Only run once on component mount
+
+        const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+        console.log("Giỏ hàng từ sessionStorage: ", cart);
+        setCartCount(cart.length); // Cập nhật số sản phẩm trong giỏ hàng
+    }, [location]); // Gọi lại mỗi khi location thay đổi
 
     const [menu] = useState([
         {
@@ -152,15 +160,15 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header-cart">
-                        <div className="header-cart-price">
+                        {/* <div className="header-cart-price">
                             <span>{formatter(1000000)}</span>
-                        </div>
+                        </div> */}
                         <div className="cart-logo">
                             <ul>
                                 <li>
                                     <Link to={ROUTERS.USER.CART}>
                                         <AiOutlineShoppingCart />
-                                        <span>5</span>
+                                        <span>{cartCount}</span>
                                     </Link>
                                 </li>
                             </ul>

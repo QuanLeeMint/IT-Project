@@ -5,16 +5,30 @@
         align-items: center;
         height: 300px;
         background-size:cover;
-        background-position-x:left;
-        background-position-y: top;
+        background-position: center;
         color: white;
         text-align: center;
+        /* Lớp phủ đổ bóng */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 58%;
+            background: rgba(0, 0, 0, 0.5); /* Màu đen mờ */
+            z-index: 1;
+        }
 
+        /* Chữ hiển thị phía trên lớp phủ */
         h1 {
+            position: relative;
+            z-index: 2;
             font-size: 3rem;
             font-weight: bold;
             margin-left: 40px;
         }
+        
     }
 
     .about-content {

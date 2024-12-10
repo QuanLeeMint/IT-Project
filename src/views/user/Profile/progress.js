@@ -7,7 +7,7 @@ const Progress = () => {
     
     <div className="progress">
       <div className="logo">
-        <img className="imglogo" src={logo} alt="Logo" width="90" height="80" />
+        <img className="imglogo" src={logo} alt="Logo"  />
       </div>
       <h2>Điểm của bạn</h2>
       <div className="progress-info">

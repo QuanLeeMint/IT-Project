@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './store.scss';
 import Map from 'assets/Lets/Map.jpg';
-
+import backgroundImage from "assets/Lets/quan.jpg"
 const stores = [
   {
     name: "Let's Cafe Work Shop",
@@ -52,10 +52,15 @@ const Storepage = () => {
   const getStatus = (openTime, closeTime) => {
     const currentHour = new Date().getHours();
     return currentHour >= openTime && currentHour < closeTime ? "OPEN" : "CLOSE";
-  };
+  };  
 
   return (
+    
     <div className="store-system">
+      <section className="store-header" style={{ backgroundImage: `url(${backgroundImage})` }}>
+                <h1>Hệ thống của hàng</h1>
+      </section>
+      <section className='store-content'>
       <h1>_Hệ thống cửa hàng_</h1>
       <div className="store-list-map">
         <div className="store-list">
@@ -78,6 +83,8 @@ const Storepage = () => {
           <img src={Map} alt="Bản đồ hệ thống cửa hàng" />
         </div>
       </div>
+      </section>
+      
     </div>
   );
 };

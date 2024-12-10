@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 
 import "./sidebar.scss";
 
 const Sidebar = () => {
   const [message, setMessage] = useState("");
-
+  const [userEmail, setUserEmail] = useState(localStorage.getItem("email") || "");
   const handleLogoutClick = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -27,7 +27,9 @@ const Sidebar = () => {
       console.log('Response từ server:', response.data);
   
       localStorage.removeItem("token");
+      localStorage.removeItem("email");
       setMessage(response.data.message);
+      setUserEmail(""); 
   
       if (response.status === 200) {
         window.location.href = "/login";
@@ -40,6 +42,15 @@ const Sidebar = () => {
       setMessage(error.response?.data?.message || "Đăng xuất thất bại");
     }
   };
+  useEffect(() => {
+
+    const emailFromLocalStorage = localStorage.getItem("email");
+    if (emailFromLocalStorage) {
+      setUserEmail(emailFromLocalStorage);
+    } else {
+      setUserEmail(""); 
+    }
+  }, []);
 
   return (
     <div className="sidebar">

@@ -77,6 +77,8 @@ const Loginpage = () => {
             if (response.ok) {
                 if (data?.token) {
                     localStorage.setItem("token", data.token);
+                    localStorage.setItem("userEmail", email); // Lưu email vào localStorage
+                    setEmail(email); 
                     alert("Đăng nhập thành công!");
                 
                     const redirectPath = localStorage.getItem('redirectPath');
